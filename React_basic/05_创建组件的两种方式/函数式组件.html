@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>函数式组件</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <script type="text/babel">
+        function MyConponent(){
+            console.log(this)//bable编译时开启严格模式use strict，禁止函数指向windows,this值是undefined
+            return <h2>我是函数式组件 </h2>
+        }
+        ReactDOM.render(<MyConponent/>,document.getElementById('test'))
+    </script>
+</body>
+</html>

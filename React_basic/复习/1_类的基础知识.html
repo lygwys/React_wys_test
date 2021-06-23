@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        class Person{
+            constructor(name,age){//构造器初始化一些参数
+                this.name=name//this指实例对象
+                this.age=age
+            }
+            speak(){//放原型里供实例调用
+                console.log(`我的名字是${this.name},我的年龄是${this.age}`)
+            }
+        }
+        class Student extends Person{
+            constructor(name,age,grade){
+                super(name,age)//帮助调用父类的构造器
+                this.grade=grade
+            }
+            speak(){//重写父类方法
+                console.log(`我的名字是${this.name},我的年龄是${this.age}，我在${this.grade}`)
+            }
+        }
+        const p1 = new Person('Tom',18)
+        const p2 = new Person('Jerry',19)
+        const s1 = new Student('小张',20,'高一')
+        console.log(p1)
+        console.log(s1)
+        p1.speak()
+        p2.speak()
+        s1.speak()
+    </script>
+</body>
+</html>

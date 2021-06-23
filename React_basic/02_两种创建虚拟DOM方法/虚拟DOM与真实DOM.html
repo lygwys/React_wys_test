@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>虚拟DOM与真实DOM</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <script type="text/babel">
+        const VDOM=<h1>虚拟DOM与真实DOM.</h1>
+        ReactDOM.render(VDOM,document.getElementById('test'))
+        const TDOM=document.getElementById('test')
+        console.log('虚拟DOM:',VDOM);
+        console.log('真实DOM：',TDOM);
+        console.log('虚拟DOM类型:',typeof VDOM);
+        console.log('真实DOM类型:',typeof TDOM);
+        console.log('虚拟DOM类型是object吗:',VDOM instanceof Object);
+        debugger;//F12在sources卡中F5可看到变量值
+    </script>
+</body>
+</html>

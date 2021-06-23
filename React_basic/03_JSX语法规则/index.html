@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_JSX语法规则</title>
+    <style>
+        .title{
+            background-color: orange;
+            width:200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="test"></div>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <script type="text/babel">
+        const myId="aTguIgu"
+        const myData="HEllO,rActe语法规范"
+        const VDOM=(
+            <div>
+                <h2 className="title" id={myId.toLowerCase()}>
+                    <span style={{color:'white',fontSize:'29px'}}>{myData.toUpperCase()}</span>
+                </h2>
+                <h4>定义虚拟DOM不能用引号</h4>
+                <h4>标签中混入JS表达式要用花括号{}</h4>
+                <h4>样式名称用className</h4>
+                <h4>内联样式用双花括号key:value</h4>
+                <h4>只有一个根标签</h4>
+                <h4>标签必须闭合</h4>
+                <h4>标签开头小写默认转为同名元素，标签大写默认转为组件，找不到则报错</h4>
+            </div>
+        )
+        ReactDOM.render(VDOM,document.getElementById('test'))
+    </script>
+</body>
+</html>

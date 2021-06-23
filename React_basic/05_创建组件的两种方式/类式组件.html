@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>类式组件</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <script type="text/babel">
+        class MyComponent extends React.Component{
+            render(){
+                console.log('render中的this是MyComponent组件实例对象：', this)
+                return <h2>我是类式组件  在Console中输入：MyComponent.prototype可以看到原型对象</h2>
+            }
+        }
+        ReactDOM.render(<MyComponent/>,document.getElementById('test'))
+    </script>
+</body>
+</html>
