@@ -14,18 +14,17 @@
         class Weather extends React.Component{
             constructor(props){
                 super(props)
-                this.state={IsHot:true}//利用构造器保存状态
+                this.state={IsHot:true}
+                this.changeWeather=this.changeWeather.bind(this)//将原型中的方法绑定给自身的同名函数
             }
             render(){
-                console.log(this)
-                const {IsHot}=this.state//结构赋值
-                return <h1 onClick={demo}>今天天气{IsHot?'炎热':'凉爽'}</h1>
+                const {IsHot}=this.state
+                return <h1 onClick={this.changeWeather}>今天天气{IsHot?'炎热':'凉爽'}</h1>
             }
-        }
-        function demo(){
-            console.log('点击了标题')
-        }
-        const VDOM=<h1 id = 'text'>jsx方式创建虚拟DOM.代码同上节，仅增加h1的 id = 'text'</h1>
+            changeWeather(){
+                console.log('@',this)//@ Weather,因为在构造器中添加了绑定
+            }            
+        }        
         ReactDOM.render(<Weather/>,document.getElementById('test'))
     </script>
 </body>

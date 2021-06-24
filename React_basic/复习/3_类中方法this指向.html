@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type='text/javascript'>
+        class Person{
+            constructor(name,age){
+                this.name=name
+                this.age=age
+            }
+            speak(){
+                console.log(this)
+            }
+        }
+        P1=new Person('Tom',18)
+        P1.speak()//Person这是实例调用，所以this指向实例
+
+        let sp=P1.speak
+        sp()//undefined,因为不是通过类的实例调用，而是直接调用。类的方法默认开启了严格模式。
+    </script>
+</body>
+</html>
