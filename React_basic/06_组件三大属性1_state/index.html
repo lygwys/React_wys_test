@@ -14,15 +14,17 @@
         class Weather extends React.Component{
             constructor(props){
                 super(props)
-                this.state={IsHot:true}
-                this.changeWeather=this.changeWeather.bind(this)//将原型中的方法绑定给自身的同名函数
+                this.state={isHot:true}
+                this.changeWeather=this.changeWeather.bind(this)
             }
             render(){
-                const {IsHot}=this.state
-                return <h1 onClick={this.changeWeather}>今天天气{IsHot?'炎热':'凉爽'}</h1>
+                const {isHot}=this.state
+                return <h1 onClick={this.changeWeather}>今天天气{isHot?'炎热':'凉爽'}</h1>
             }
             changeWeather(){
-                console.log('@',this)//@ Weather,因为在构造器中添加了绑定
+                const isHot = this.state.isHot//取值
+                this.setState({isHot:!isHot})//必须用setSatat更新值，不然Components中值不变化
+                console.log('@',this)
             }            
         }        
         ReactDOM.render(<Weather/>,document.getElementById('test'))
