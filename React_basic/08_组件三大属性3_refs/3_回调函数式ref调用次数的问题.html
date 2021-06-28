@@ -23,14 +23,18 @@
                 const {isHot}=this.state
                 this.setState({isHot:!isHot})
             }        
-                            
+            saveInput = (c)=>{
+                this.input1=c;
+                console.log('#',c)
+            }                
             render(){ 
                 const {isHot}=this.state               
                 return(                                       
                     <div>
                         <h1>今天天气很{isHot?"火热":"凉爽"}</h1>
-                        <input ref={c=>{this.input1=c;console.log('#',c)
-                        }} type="text" placeholder="点击按钮提示数据"/>&nbsp;
+                        {/*<input ref={c=>{this.input1=c;console.log('#')
+                        }} type="text" placeholder="点击按钮提示数据"/>&nbsp;*/}
+                        <input ref={this.saveInput} type="text" placeholder="点击按钮提示数据"/>&nbsp;
                         <button ref="botton1" onClick={this.showData}>点击提示左侧数据</button>&nbsp;                        
                         <button onClick={this.change}>更新天气</button>
                     </div>
