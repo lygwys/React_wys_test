@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高阶函数_函数柯里化</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <script type="text/javascript" src="../js/prop-types.js"></script>
+    <script type="text/babel">
+    //#region
+        /*
+            高阶函数：函数的参数或返回值是仍一个函数：Promise/setTimeout/arr.map()...
+            函数柯里化：函数的调用继续返回函数，多次接收参数，最后统一处理的函数编码方式
+        */    
+    //#endregion
+    class Login extends React.Component{
+        handleSubmit =(e)=>{
+            e.preventDefault()//阻止表单默认提交
+            const{name,password}=this.state//从state中取出值
+            alert(`你输入的用户名是：${name}你输入的密码是：${password}`)//输出模板写法
+        }
+        state={
+            name:'',
+            password:''
+        }
+        saveFormData =(dataType)=>{//参数是使用时设置的字段名。高阶函数，因为返回的是函数，另一种高阶函数是参数是函数。函数柯里化了，因为返回的函数也接收了参数，最后统一处理了。
+            console.log(dataType);
+            return (e)=>{//返回的是函数，参数是当前节点。e是react生成的，不可以直接使用，所以要用函数柯里化
+                console.log(dataType,e.target.value)
+                this.setState({[dataType]:e.target.value})//要加[]才读变量
+            }
+        }
+        render(){
+            return(
+                <form action="http://www.baidu.com" onSubmit={this.handleSubmit}>
+                    用户名：<input onChange={this.saveFormData('name')} type="text" name="name"/> 
+                    密码：<input onChange={this.saveFormData('password')}  type="password" name="password"/>
+                    <button>登录</button>   
+                    {/*onChange=必须是一个函数。不管后边是否带()*/}
+                </form>
+            )
+        }
+    }      
+        ReactDOM.render(<Login/>,document.getElementById('test'))       
+    </script>
+</body>
+</html>
