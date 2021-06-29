@@ -15,7 +15,7 @@
     <script type="text/babel">
     class Login extends React.Component{
         handleSubmit =(e)=>{
-            e.preventDefault()
+            e.preventDefault()//阻止表单默认提交
             const{name,password}=this.state//从state中取出值
             alert(`你输入的用户名是：${name}你输入的密码是：${password}`)//输出模板写法
         }
