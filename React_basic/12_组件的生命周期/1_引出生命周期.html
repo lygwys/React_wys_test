@@ -18,21 +18,20 @@
             death =()=>{//移除组件
                 ReactDOM.unmountComponentAtNode(document.getElementById('test'))
             }
-            start= ()=>{
-                    setInterval(() => {
+            componentDidMount(){
+                setInterval(() => {
                     let {opacity} = this.state
                     opacity -= 0.1
                     if(opacity <=0) opacity = 1
                     this.setState({opacity})
                     }, 200);
-                }            
+            }           
             render(){
                 console.log('render')         
                 return(
                     <div>
                         <h2 style={{opacity:this.state.opacity}}>React学不会怎么办</h2>
-                        <button onClick={this.death}>不活了</button>   
-                        <button onClick={this.start}>开始变化</button>   
+                        <button onClick={this.death}>不活了</button>  
                     </div>
                 )
             }
