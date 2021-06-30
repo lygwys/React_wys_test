@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>037 引出生命周期 变化透明度的标题</title>
+    <title>038 生命周期（旧）组件挂载流程_初始化流程</title>
 </head>
 <body>
     <div id="test"></div>
@@ -14,13 +14,24 @@
     <script type="text/javascript" src="../js/prop-types.js"></script>
     <script type="text/babel">
         class Count extends React.Component{ 
-            state ={count:0}   
+            constructor(props)
+            {
+                console.log('Count_构造器constructor()')
+                super(props)
+                this.state ={count:0} 
+            }              
             add=()=>{
                     const {count}=this.state
                     this.setState({count:count+1})
-                }    
+            }
+            componentWillMount(){
+                console.log('Count_组件将要挂载componentWillMount()')
+            }
+            componentDidMount(){
+                console.log('Count_组件挂载之后componentDidMount()')
+            }  
             render(){
-                console.log('render') 
+                console.log('Count_组件挂载render()') 
                 const {count}=this.state              
                 return(
                     <div>
@@ -31,6 +42,11 @@
             }
         }
         ReactDOM.render(<Count/>,document.getElementById('test'))
-    </script>   
+    </script> 
+      <!--初始化执行流程：
+            Count_构造器constructor()
+            Count_组件将要挂载componentWillMount()
+            Count_组件挂载render()
+            Count_组件挂载之后componentDidMount()  -->
 </body>
 </html>
