@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>036 提交表单数据练习1使用高阶函数与柯里化</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <script type="text/javascript" src="../js/prop-types.js"></script>
+    <script type="text/babel">
+        class Login extends React.Component{
+            state={
+                userName:'',
+                password:'',
+                email:'',
+            }
+            handleSubmit = (e)=>{
+                e.preventDefault()
+                const {userName,password,email}=this.state
+                alert (`您的用户名是：${userName}密码是：${password}电子邮箱是：${email}`)
+            }
+            saveFormData =(key)=>{
+                return (e)=>{
+                    this.setState({[key]:e.target.value})
+                }
+            }
+            render(){
+                return(
+                    <form action="http://www.baidu.com" onSubmit={this.handleSubmit}>
+                        用户名：<input onChange={this.saveFormData('userName')} type="text" name="userName"/>
+                        密码：<input onChange={this.saveFormData('password')} type="password" name="password"/>
+                        电子邮箱：<input onChange={this.saveFormData('email')} type="text" name="email"/>
+                        <button>提交</button>
+                    </form>
+                )
+            }
+        }
+        ReactDOM.render(<Login/>,document.getElementById('test'))
+    </script>
+</body>
+</html>
