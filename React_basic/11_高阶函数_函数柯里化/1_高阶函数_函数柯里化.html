@@ -31,7 +31,7 @@
         }
         saveFormData =(dataType)=>{//参数是使用时设置的字段名。高阶函数，因为返回的是函数，另一种高阶函数是参数是函数。函数柯里化了，因为返回的函数也接收了参数，最后统一处理了。
             console.log(dataType);
-            return (e)=>{//返回的是函数，参数是当前节点。e是react生成的，不可以直接使用，所以要用函数柯里化
+            return (e)=>{//返回的是函数，参数是当前节点。e是react生成的，不可以直接使用，不能同时拿到e和dataType所以要用函数柯里化
                 console.log(dataType,e.target.value)
                 this.setState({[dataType]:e.target.value})//要加[]才读变量
             }
