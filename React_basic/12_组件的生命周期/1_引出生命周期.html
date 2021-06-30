@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>037 引出生命周期</title>
+    <title>037 引出生命周期 变化透明度的标题</title>
 </head>
 <body>
     <div id="test"></div>
@@ -13,19 +13,22 @@
     <script type="text/javascript" src="../js/babel.min.js"></script>
     <script type="text/javascript" src="../js/prop-types.js"></script>
     <script type="text/babel">
-        class Life extends React.Component{
+        class Life extends React.Component{            
             state = {opacity:1}
             death =()=>{//移除组件
                 ReactDOM.unmountComponentAtNode(document.getElementById('test'))
             }
-            componentDidMount(){
-                setInterval(() => {
+            componentDidMount(){//组件挂载完毕执行
+                this.timer=setInterval(() => {//定义计时器
                     let {opacity} = this.state
                     opacity -= 0.1
                     if(opacity <=0) opacity = 1
                     this.setState({opacity})
                     }, 200);
-            }           
+            } 
+            componentWillUnmount(){//组件将卸载时执行
+                clearInterval(this.timer)//清除计时器
+            }          
             render(){
                 console.log('render')         
                 return(
