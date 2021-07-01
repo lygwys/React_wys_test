@@ -24,12 +24,18 @@
                     const {count}=this.state
                     this.setState({count:count+1})
             }
+            death= ()=>{
+                ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+            }
             componentWillMount(){
-                console.log('Count_组件将要挂载componentWillMount()')
+                console.log('Count_组件将要挂载 ReactDOM.unmountComponentAtNode()')
             }
             componentDidMount(){
                 console.log('Count_组件挂载之后componentDidMount()')
-            }  
+            } 
+            componentWillUnmount(){
+                console.log('Count_组件将要卸载componentWillUnmount()')
+            } 
             render(){
                 console.log('Count_组件挂载render()') 
                 const {count}=this.state              
@@ -37,6 +43,7 @@
                     <div>
                         <h2>当前和为:{count}</h2>
                         <button onClick={this.add}>点我+1</button>
+                        <button onClick={this.death}>卸载组件</button>
                     </div>
                 )
             }
