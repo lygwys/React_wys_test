@@ -38,8 +38,14 @@
             } 
             shouldComponentUpdate(){//写了就要确定返回是true或false,否则报错，不写默认返回true
                 console.log('Count_组件是否要更新shouldComponentUpdate()')
-                return false//不再向下执行了，不会重新渲染页面
+                return true//false不再向下执行了，不会重新渲染页面
             }
+            componentWillUpdate(){
+                console.log('Count_组件将要更新componentWillUpdate()')
+            } 
+            componentDidUpdate(){
+                console.log('Count_组件更新后componentDidUpdate()')
+            } 
             render(){
                 console.log('Count_组件挂载render()') 
                 const {count}=this.state              
