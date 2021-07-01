@@ -62,7 +62,34 @@
                 )
             }
         }
-        ReactDOM.render(<Count/>,document.getElementById('test'))
+        class A extends React.Component{
+            state ={carName:'奔驰'}
+            changeCar =()=>{
+                this.setState({carName:'奥拓'})
+            }
+            render(){
+                return(
+                    <div>
+                        <div>我是A组件</div>
+                        <button onClick={this.changeCar}>换车</button>
+                        <B carName={this.state.carName}/>    
+                    </div>
+                )
+            }
+        }
+        class B extends React.Component{
+            componentWillReceiveProps(){
+                console.log('子组件的componentWillReceiveProps()被调用')
+            }
+            render(){
+                return(
+                    <div>
+                        <div>我是B组件，接收到的车是{this.props.carName}</div>    
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<A/>,document.getElementById('test'))
     </script> 
       <!--初始化执行流程：
             Count_构造器constructor()
@@ -80,6 +107,8 @@
             组件将要更新componentWillUpdate()
             组件挂载render()
             组件更新后componentDidUpdate()
+
+        componentWillReceiveProps()子组件在接收到Props时被调用（第一次加载时不调用）
     -->
 </body>
 </html>
