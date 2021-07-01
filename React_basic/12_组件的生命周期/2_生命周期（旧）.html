@@ -27,6 +27,9 @@
             death= ()=>{
                 ReactDOM.unmountComponentAtNode(document.getElementById('test'))
             }
+            force=()=>{
+                this.forceUpdate()
+            }
             componentWillMount(){
                 console.log('Count_组件将要挂载 ReactDOM.unmountComponentAtNode()')
             }
@@ -38,7 +41,7 @@
             } 
             shouldComponentUpdate(){//写了就要确定返回是true或false,否则报错，不写默认返回true
                 console.log('Count_组件是否要更新shouldComponentUpdate()')
-                return true//false不再向下执行了，不会重新渲染页面
+                return false//false不再向下执行了，不会重新渲染页面
             }
             componentWillUpdate(){
                 console.log('Count_组件将要更新componentWillUpdate()')
@@ -54,6 +57,7 @@
                         <h2>当前和为:{count}</h2>
                         <button onClick={this.add}>点我+1</button>
                         <button onClick={this.death}>卸载组件</button>
+                        <button onClick={this.force}>不更改状态，强制更新页面</button>
                     </div>
                 )
             }
@@ -68,6 +72,11 @@
         
         setState()流程：
             组件是否要更新shouldComponentUpdate()
+            组件将要更新componentWillUpdate()
+            组件挂载render()
+            组件更新后componentDidUpdate()
+
+        forceUpdate()强制更新流程：
             组件将要更新componentWillUpdate()
             组件挂载render()
             组件更新后componentDidUpdate()
