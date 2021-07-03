@@ -33,7 +33,11 @@
                 //初始返回：执行了新钩子getDerivedStateFromProps() {count: 199} {count: 0}
                 //点我+1按钮永远返回：执行了新钩子getDerivedStateFromProps() {count: 199} {count: 200}
                 //点强制更新按钮返回：执行了新钩子getDerivedStateFromProps() {count: 199} {count: 199}
-                return props
+                return null//props
+            }
+            getSnapshotBeforeUpdate(){
+                console.log('执行了新钩子getSnapshotBeforeUpdate()')
+                return 'atguigu'
             }
             force=()=>{
                 this.forceUpdate()
