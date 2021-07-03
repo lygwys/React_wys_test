@@ -28,17 +28,17 @@
             death= ()=>{
                 ReactDOM.unmountComponentAtNode(document.getElementById('test'))
             }
-            // static getDerivedStateFromProps(props,state){
-            //     console.log('执行了新钩子getDerivedStateFromProps()',props,state)
-            //     //初始返回：执行了新钩子getDerivedStateFromProps() {count: 199} {count: 0}
-            //     //点我+1按钮永远返回：执行了新钩子getDerivedStateFromProps() {count: 199} {count: 200}
-            //     //点强制更新按钮返回：执行了新钩子getDerivedStateFromProps() {count: 199} {count: 199}
-            //     return null//props
-            // }
-            // getSnapshotBeforeUpdate(){
-            //     console.log('执行了新钩子getSnapshotBeforeUpdate()')
-            //     return 'atguigu'
-            // }
+            static getDerivedStateFromProps(props,state){
+                console.log('执行了新钩子getDerivedStateFromProps()',props,state)
+                //初始返回：执行了新钩子getDerivedStateFromProps() {count: 199} {count: 0}
+                //点我+1按钮永远返回：执行了新钩子getDerivedStateFromProps() {count: 199} {count: 200}
+                //点强制更新按钮返回：执行了新钩子getDerivedStateFromProps() {count: 199} {count: 199}
+                return null//props
+            }
+            getSnapshotBeforeUpdate(){
+                console.log('执行了新钩子getSnapshotBeforeUpdate()')
+                return 'atguigu'//传给componentDidUpdate（）作为第三个参数
+            }
             force=()=>{
                 this.forceUpdate()
             }
@@ -49,8 +49,9 @@
                 console.log('Count_组件是否要更新shouldComponentUpdate()')
                 return true//false不再向下执行了，不会重新渲染页面
             }
-            componentDidUpdate(preProps,preState){
-                console.log('Count_组件更新后componentDidUpdate()',preProps,preState)
+            componentDidUpdate(preProps,preState,snapShotValue){
+                console.log('Count_组件更新后componentDidUpdate()',preProps,preState,snapShotValue)
+                //Count_组件更新后componentDidUpdate() {count: 199} {count: 0} atguigu
             } 
             render(){
                 console.log('Count_组件挂载render()') 
