@@ -28,11 +28,12 @@
             death= ()=>{
                 ReactDOM.unmountComponentAtNode(document.getElementById('test'))
             }
+            static getDerivedStateFromProps(props,state){
+                console.log('执行了新钩子getDerivedStateFromProps()',props,state)
+                return {count:108}
+            }
             force=()=>{
                 this.forceUpdate()
-            }
-            UNSAFE_componentWillMount(){
-                console.log('Count_组件将要挂载 UNSAFE_componentWillMount()')
             }
             componentDidMount(){
                 console.log('Count_组件挂载之后componentDidMount()')
@@ -42,11 +43,8 @@
             } 
             shouldComponentUpdate(){//写了就要确定返回是true或false,否则报错，不写默认返回true
                 console.log('Count_组件是否要更新shouldComponentUpdate()')
-                return false//false不再向下执行了，不会重新渲染页面
+                return true//false不再向下执行了，不会重新渲染页面
             }
-            UNSAFEcomponentWillUpdate(){
-                console.log('Count_组件将要更新UNSAFE_componentWillUpdate()')
-            } 
             componentDidUpdate(){
                 console.log('Count_组件更新后componentDidUpdate()')
             } 
@@ -63,34 +61,7 @@
                 )
             }
         }
-        class A extends React.Component{
-            state ={carName:'奔驰'}
-            changeCar =()=>{
-                this.setState({carName:'奥拓'})
-            }
-            render(){
-                return(
-                    <div>
-                        <div>我是A组件</div>
-                        <button onClick={this.changeCar}>换车</button>
-                        <B carName={this.state.carName}/>    
-                    </div>
-                )
-            }
-        }
-        class B extends React.Component{
-            componentWillReceiveProps(){
-                console.log('子组件的componentWillReceiveProps()被调用')
-            }
-            render(){
-                return(
-                    <div>
-                        <div>我是B组件，接收到的车是{this.props.carName}</div>    
-                    </div>
-                )
-            }
-        }
-        ReactDOM.render(<Count/>,document.getElementById('test'))
+        ReactDOM.render(<Count name='tom'/>,document.getElementById('test'))
     </script> 
 </body>
 </html>
