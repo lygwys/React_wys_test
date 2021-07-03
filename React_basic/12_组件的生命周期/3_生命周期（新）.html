@@ -30,16 +30,16 @@
             }
             static getDerivedStateFromProps(props,state){
                 console.log('执行了新钩子getDerivedStateFromProps()',props,state)
-                return {count:108}
+                //初始返回：执行了新钩子getDerivedStateFromProps() {count: 199} {count: 0}
+                //点我+1按钮永远返回：执行了新钩子getDerivedStateFromProps() {count: 199} {count: 200}
+                //点强制更新按钮返回：执行了新钩子getDerivedStateFromProps() {count: 199} {count: 199}
+                return props
             }
             force=()=>{
                 this.forceUpdate()
             }
             componentDidMount(){
                 console.log('Count_组件挂载之后componentDidMount()')
-            } 
-            UNSAFE_componentWillUnmount(){
-                console.log('Count_组件将要卸载UNSAFE_componentWillUnmount()')
             } 
             shouldComponentUpdate(){//写了就要确定返回是true或false,否则报错，不写默认返回true
                 console.log('Count_组件是否要更新shouldComponentUpdate()')
@@ -61,7 +61,7 @@
                 )
             }
         }
-        ReactDOM.render(<Count name='tom'/>,document.getElementById('test'))
+        ReactDOM.render(<Count count ={199}/>,document.getElementById('test'))
     </script> 
 </body>
 </html>
