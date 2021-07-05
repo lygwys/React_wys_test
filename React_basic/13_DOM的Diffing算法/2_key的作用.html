@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diffing算法的最小粒度是节点，逐层对比</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script type="text/javascript" src="../js/17.0.1/react.development.js"></script>
+    <script type="text/javascript" src="../js/17.0.1/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/17.0.1/babel.min.js"></script>
+    <script type="text/javascript" src="../js/17.0.1/prop-types.js"></script>
+    <script type="text/babel">
+        class Person extends React.Component{
+            state={persons:[
+                {id:1,name:'小张',age:18},
+                {id:2,name:'小李',age:19},
+            ]}
+            add=()=>{
+                const {persons}=this.state
+                const p = {id:persons.length+1,name:'小王',age:20}
+                this.setState({persons:[p,...persons]})
+            }
+            render(){
+                return(
+                    <div>
+                        <h1>展示人员信息</h1>
+                        <button onClick={this.add}>添加小王</button>
+                        <ul>
+                        {
+                            this.state.persons.map((person,index)=>{
+                                return <li key={index}>{person.name}---{person.age}</li>
+                            })
+                        }
+                        </ul>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<Person/>,document.getElementById('test'))
+    </script>    
+</body>
+</html>
+<!--
+    使用index作为节点key缺点：当在前方添加数据时，导致每条数据的index都在变化，都要重新渲染DOM,效率低
+
+    
+
+-->
