@@ -28,13 +28,24 @@
                     <div>
                         <h1>展示人员信息</h1>
                         <button onClick={this.add}>添加小王</button>
+                        <h3>使用index（索引）作为key</h3>
                         <ul>
                         {
                             this.state.persons.map((person,index)=>{
-                                return <li key={index}>{person.name}---{person.age}</li>
+                                return <li key={index}>{person.name}---{person.age}<input type='text'/></li>
                             })
                         }
                         </ul>
+                        <hr/>
+                        <h3>使用id（数据唯一标识）作为key</h3>
+                        <ul>
+                        {
+                            this.state.persons.map((person,index)=>{
+                                return <li key={person.id}>{person.name}---{person.age}<input type='text'/></li>
+                            })
+                        }
+                        </ul>
+                        <hr/>
                     </div>
                 )
             }
@@ -45,7 +56,7 @@
 </html>
 <!--
     使用index作为节点key缺点：当在前方添加数据时，导致每条数据的index都在变化，都要重新渲染DOM,效率低
-
+    逆序添加、逆序删除等破坏顺序操作、节点中包含输入类DOM尽量不用index作key
     
 
 -->
