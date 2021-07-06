@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Header from './components/Header'
 import './App.css'
 
 export default class App extends Component {
@@ -6,9 +7,7 @@ export default class App extends Component {
         return (
             <div className="todo-container">
                 <div className="todo-wrap">
-                    <div className="todo-header">
-                        <input type="text" placeholder="请输入你的任务名称，按回车键确认"/>
-                    </div>
+                    <Header/>
                     <ul className="todo-main">
                         <li>
                         <label>
