@@ -7,6 +7,13 @@ export default class List extends Component {
         return (
             <ul className="todo-main">
                 <Item/>
+                <Item/>
+                <Item/>
+                <Item/>
+                <Item/>
+                <Item/>
+                <Item/>
+                <Item/>
             </ul>
         )
     }
