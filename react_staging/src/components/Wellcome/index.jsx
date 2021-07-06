@@ -1,7 +1,7 @@
 import react,{Component} from 'react'
-import './index.css'
+import wellcome from './index.module.css'
 export default class Wellcome extends Component{
     render(){
-        return <h1 className="title">Wellcome!</h1>
+        return <h1 className={wellcome.title}>Wellcome!</h1>
     }
 }
