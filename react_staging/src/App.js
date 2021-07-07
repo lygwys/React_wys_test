@@ -11,14 +11,17 @@ export default class App extends Component {
         {id:'003',name:'打代码',done:false},
         {id:'004',name:'逛街',done:true},
     ]}
+    addTodo = (data)=>{
+        console.log('App获得的：',data);
+    }
 
     render() {
-        const {todos}=this.state
+        const {todos}=this.state    
         return (
             <div className="todo-container">
                 <div className="todo-wrap">
-                    <Header/>
-                    <List todos={todos}/>
+                    <Header add={this.addTodo}/>
+                    <List todos={todos} />
                     <Footer/>
                 </div>
             </div>
