@@ -6,12 +6,17 @@ export default class Header extends Component {
     handleKeyUp=(e)=>{
         const {keyCode,target}=e
         if (keyCode !==13) return//回车键值为13
+        if(target.value.trim()===''){
+            alert('输入不能为空');
+            return;
+        }
         const todoObj = {
             id:nanoid(),
             name:target.value,
             done:false
         }
         this.props.add(todoObj)
+        target.value=''
     }
     render() {
         return (
