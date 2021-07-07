@@ -11,8 +11,10 @@ export default class App extends Component {
         {id:'003',name:'打代码',done:false},
         {id:'004',name:'逛街',done:true},
     ]}
-    addTodo = (data)=>{
-        console.log('App获得的：',data);
+    addTodo = (todoObj)=>{
+        const {todos}=this.state
+        const newTodos=[todoObj,...todos]
+        this.setState({todos:newTodos})
     }
 
     render() {

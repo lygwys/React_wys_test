@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
+import {nanoid} from 'nanoid'//yarn add nanoid
 import './index.css'
 
 export default class Header extends Component {
     handleKeyUp=(e)=>{
         const {keyCode,target}=e
         if (keyCode !==13) return//回车键值为13
-        console.log(target.value)
-        this.props.add(target.value)
+        const todoObj = {
+            id:nanoid(),
+            name:target.value,
+            done:false
+        }
+        this.props.add(todoObj)
     }
     render() {
         return (
