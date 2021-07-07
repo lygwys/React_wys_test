@@ -18,7 +18,7 @@ export default class Item extends Component {
                     {/* 此处如果用checked就报错必须使用onChange    有bug */}
                     <span>{name}</span>
                 </label>
-                <button className="btn btn-danger" style={{display:'none'}}>删除</button>
+                <button className="btn btn-danger" style={{display:mouse?'block':'none'}}>删除</button>
             </li>
         )
     }
