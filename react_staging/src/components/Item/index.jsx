@@ -8,13 +8,18 @@ export default class Item extends Component {
             this.setState({mouse:flag})
         }
     }
+    handleCheck=(id)=>{
+        return (e)=>{
+            this.props.updateTodo(id,e.target.checked)
+        }
+    }
     render() {
-        const {name,done}=this.props
+        const {id,name,done}=this.props
         const {mouse}=this.state
         return (
             <li style={{backgroundColor:mouse?'#ddd':'white'}} onMouseEnter={this.handleMouse(true)} onMouseLeave={this.handleMouse(false)}>
                 <label>
-                    <input type="checkbox" defaultChecked={done}/>
+                    <input type="checkbox" defaultChecked={done} onChange={this.handleCheck(id)}/>
                     {/* 此处如果用checked就报错必须使用onChange    有bug */}
                     <span>{name}</span>
                 </label>
