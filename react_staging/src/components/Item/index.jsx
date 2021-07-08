@@ -13,6 +13,11 @@ export default class Item extends Component {
             this.props.updateTodo(id,e.target.checked)
         }
     }
+    handleDelete=(id)=>{
+        if(window.confirm('确定删除码？')){
+           this.props.deleteTodo(id)
+        }
+    }
     render() {
         const {id,name,done}=this.props
         const {mouse}=this.state
@@ -23,7 +28,7 @@ export default class Item extends Component {
                     {/* 此处如果用checked就报错必须使用onChange    有bug */}
                     <span>{name}</span>
                 </label>
-                <button className="btn btn-danger" style={{display:mouse?'block':'none'}}>删除</button>
+                <button onClick={()=>this.handleDelete(id)} className="btn btn-danger" style={{display:mouse?'block':'none'}}>删除</button>
             </li>
         )
     }
