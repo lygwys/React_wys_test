@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import './index.css'
 
 export default class Footer extends Component {    
+    handleChangeAll = (e)=>{
+        this.props.checkAllTodo(e.target.checked)
+    }
     render() {
         const {todos}=this.props
         const doneCount = todos.reduce((pre,todo)=>pre +(todo.done ? 1 : 0),0)
@@ -9,7 +12,7 @@ export default class Footer extends Component {
         return (
             <div className="todo-footer">
                 <label>
-                <input type="checkbox"/>
+                <input type="checkbox" checked = {doneCount === total && total != 0 ? true : false} onChange={this.handleChangeAll}/>
                 </label>
                 <span>
                 <span>已完成{doneCount}</span> / 全部{total}

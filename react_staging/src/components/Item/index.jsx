@@ -24,7 +24,7 @@ export default class Item extends Component {
         return (
             <li style={{backgroundColor:mouse?'#ddd':'white'}} onMouseEnter={this.handleMouse(true)} onMouseLeave={this.handleMouse(false)}>
                 <label>
-                    <input type="checkbox" defaultChecked={done} onChange={this.handleCheck(id)}/>
+                    <input type="checkbox" checked={done} onChange={this.handleCheck(id)}/>
                     {/* 此处如果用checked就报错必须使用onChange    有bug */}
                     <span>{name}</span>
                 </label>
