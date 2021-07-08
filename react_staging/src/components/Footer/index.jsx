@@ -5,6 +5,11 @@ export default class Footer extends Component {
     handleChangeAll = (e)=>{
         this.props.checkAllTodo(e.target.checked)
     }
+
+    handleClearAllDone =()=>{
+        this.props.clearAllDone()
+    }
+
     render() {
         const {todos}=this.props
         const doneCount = todos.reduce((pre,todo)=>pre +(todo.done ? 1 : 0),0)
@@ -17,7 +22,7 @@ export default class Footer extends Component {
                 <span>
                 <span>已完成{doneCount}</span> / 全部{total}
                 </span>
-                <button className="btn btn-danger">清除已完成任务</button>
+                <button className="btn btn-danger" onClick={this.handleClearAllDone}>清除已完成任务</button>
             </div>
         )
     }
