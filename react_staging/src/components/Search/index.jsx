@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 export default class Search extends Component {
     search = () =>{
         const {keyWordElement:{value:keyWord}}=this
         console.log(keyWord)
+        axios.get(`https://api.github.com/search/users?q={keyWord}`).then(
+            response=>{console.log('成功了',response.data);},
+            error=>{console.log('失败了',error);}
+        )
 
     }
     render() {
