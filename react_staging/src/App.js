@@ -10,10 +10,11 @@ export default class App extends Component {
     }
 
     render() {
+        const {users} = this.state
         return (
             <div className="container">
                 {<Search saveUsers={this.saveUsers}/>}
-                {<List/>}
+                {<List users={users}/>}
           </div>
         )
     }
