@@ -10,7 +10,7 @@ export default class Search extends Component {
                 this.props.updateAppState({isLoading:false,users:response.data.items})
             },
             error=>{
-                this.props.updateAppState({isLoading:false,err:error})
+                this.props.updateAppState({isLoading:false,err:error.message})
             }
         )
 
