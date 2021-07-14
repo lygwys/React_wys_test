@@ -4,12 +4,14 @@ import axios from 'axios'
 export default class Search extends Component {
     search = () =>{
         const {keyWordElement:{value:keyWord}}=this
-        console.log(keyWord)
+        this.props.updateAppState({isFirst:false,isLoading:true})
         axios.get(`/api1/search/users?q=${keyWord}`).then(
             response=>{
-                this.props.saveUsers(response.data.items)
+                this.props.updateAppState({isLoading:false,users:response.data.items})
             },
-            error=>{console.log('失败了',error);}
+            error=>{
+                this.props.updateAppState({isLoading:false,err:error})
+            }
         )
 
     }
