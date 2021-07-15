@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 
 export default class About extends Component {
     render() {
-        return (
+        console.log('About路由组件收到的props:',this.props);
+        return (            
             <h3>我是About的内容</h3>
-        )
+        )   
     }
 }
