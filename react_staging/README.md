@@ -67,4 +67,6 @@
 				2.标签体内容是一个特殊的标签属性
 				3.通过this.props.children可获取标签体内容
 
-				
+## 六、Switch的使用
+				1.通常情况下，path和component是一一对应的关系。
+				2.Switch可以提高路由匹配效率(单一匹配)。			
