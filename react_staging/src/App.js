@@ -4,7 +4,6 @@ import About from './pages/About'
 import Home from './pages/Home'
 import Header from './components/Header'
 import MyNavLink from './components/MyNavLink'
-import Test from './components/Test'
 
 export default class App extends Component {
     render() {
@@ -22,17 +21,16 @@ export default class App extends Component {
                     <a className="list-group-item active" href="./home.html">Home</a> */}
                         {/* <NavLink activeClassName="atguigu" className="list-group-item" to="/home">Home</NavLink>
                         <NavLink activeClassName="atguigu" className="list-group-item" to="/about">About</NavLink>  */}
-                        <MyNavLink to="/home">Home</MyNavLink>
-                        <MyNavLink to="/about">About</MyNavLink>
+                        <MyNavLink to="/atguigu/home">Home</MyNavLink>
+                        <MyNavLink to="/atguigu/about">About</MyNavLink>
                     </div>
                 </div>
                 <div className="col-xs-6">
                     <div className="panel">
                     <div className="panel-body">
                             <Switch>
-                                <Route path="/about" component={About}/>
-                                <Route path="/home" component={Home}/>    
-                                <Route path="/home" component={Test}/>      
+                                <Route path="/atguigu/about" component={About}/>
+                                <Route path="/atguigu/home" component={Home}/> 
                             </Switch>              
                     </div>
                     </div>
