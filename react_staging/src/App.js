@@ -21,16 +21,16 @@ export default class App extends Component {
                     <a className="list-group-item active" href="./home.html">Home</a> */}
                         {/* <NavLink activeClassName="atguigu" className="list-group-item" to="/home">Home</NavLink>
                         <NavLink activeClassName="atguigu" className="list-group-item" to="/about">About</NavLink>  */}
-                        <MyNavLink to="/atguigu/home">Home</MyNavLink>
-                        <MyNavLink to="/atguigu/about">About</MyNavLink>
+                        <MyNavLink to="/home">Home</MyNavLink>
+                        <MyNavLink to="/about">About</MyNavLink>
                     </div>
                 </div>
                 <div className="col-xs-6">
                     <div className="panel">
                     <div className="panel-body">
                             <Switch>
-                                <Route path="/atguigu/about" component={About}/>
-                                <Route path="/atguigu/home" component={Home}/> 
+                                <Route exact={true} path="/about" component={About}/>
+                                <Route exact path="/home" component={Home}/> 
                             </Switch>              
                     </div>
                     </div>
