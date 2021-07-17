@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Detail from './Detail'
 
 export default class index extends Component {
     state={
@@ -23,6 +24,8 @@ export default class index extends Component {
                        }) 
                     }
                 </ul>
+                <hr />
+                <Detail/>
             </div>
         )
     }
