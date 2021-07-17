@@ -8,11 +8,15 @@ const DetaiData= [
 
 export default class index extends Component {
     render() {
+        const {id,title}=this.props.match.params
+        const findResult = DetaiData.find((detailObj)=>{
+            return detailObj.id===id
+        })
         return (
             <ul>
-                <li>ID:???</li>
-                <li>TITLE:???</li>
-                <li>CONTENT:???</li>
+                <li>ID:{id}</li>
+                <li>TITLE:{title}</li>
+                <li>CONTENT:{findResult.content}</li>
             </ul>
         )
     }
