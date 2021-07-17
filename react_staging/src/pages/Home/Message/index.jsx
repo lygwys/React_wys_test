@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link,Route} from 'react-router-dom'
 import Detail from './Detail'
 
 export default class index extends Component {
@@ -18,14 +19,14 @@ export default class index extends Component {
                        messageArr.map((messObj)=>{
                         return(
                             <li key={messObj.id}>
-                                <a href="/???">{messObj.title}</a>&nbsp;&nbsp;
+                                <Link to="/home/message/detail">{messObj.title}</Link>
                             </li> 
                         )
                        }) 
                     }
                 </ul>
                 <hr />
-                <Detail/>
+                <Route path="/home/message/detail" component={Detail}/>
             </div>
         )
     }
