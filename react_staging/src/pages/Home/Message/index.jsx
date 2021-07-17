@@ -16,10 +16,10 @@ export default class index extends Component {
             <div>
                 <ul>
                     {
-                       messageArr.map((messObj)=>{
+                       messageArr.map((msgObj)=>{
                         return(
-                            <li key={messObj.id}>
-                                <Link to="/home/message/detail">{messObj.title}</Link>
+                            <li key={msgObj.id}>
+                                <Link to={`/home/message/detail/${msgObj.id}`}>{msgObj.title}</Link>
                             </li> 
                         )
                        }) 
