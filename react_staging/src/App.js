@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import {Route,Switch} from 'react-router-dom'
+import {Route,Switch,Rdiret} from 'react-router-dom'
 import About from './pages/About'
 import Home from './pages/Home'
 import Header from './components/Header'
 import MyNavLink from './components/MyNavLink'
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min'
 
 export default class App extends Component {
     render() {
@@ -23,14 +24,15 @@ export default class App extends Component {
                         <NavLink activeClassName="atguigu" className="list-group-item" to="/about">About</NavLink>  */}
                         <MyNavLink to="/home">Home</MyNavLink>
                         <MyNavLink to="/about">About</MyNavLink>
+                        <Redirect to="about"/>
                     </div>
                 </div>
                 <div className="col-xs-6">
                     <div className="panel">
                     <div className="panel-body">
                             <Switch>
-                                <Route exact={true} path="/about" component={About}/>
-                                <Route exact path="/home" component={Home}/> 
+                                <Route path="/about" component={About}/>
+                                <Route path="/home" component={Home}/> 
                             </Switch>              
                     </div>
                     </div>
