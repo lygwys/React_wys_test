@@ -31,6 +31,17 @@ export default class index extends Component {
     pushShow=(id,title)=>{
         this.props.history.push(`/home/message/detail`,{id,title})
     }
+
+    back = ()=>{
+        this.props.history.goBack()
+    }
+    forward = ()=>{
+        this.props.history.goForward()
+    }
+    go = ()=>{
+        this.props.history.go(2)
+    }
+
     render() {
         const {messageArr}=this.state
         return (
@@ -55,6 +66,11 @@ export default class index extends Component {
                 <hr />
                 {/* <Route path="/home/message/detail/:id/:title" component={Detail}/> */}
                 <Route path="/home/message/detail/" component={Detail}/>
+                
+                <button onClick={this.back}>后退</button>&nbsp;
+                <button onClick={this.forward}>前进</button>&nbsp;
+                <button onClick={this.go}>go +2</button>
+
             </div>
         )
     }
