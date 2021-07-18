@@ -108,4 +108,9 @@
 							路由链接(携带参数)：<Link to={{pathname:'/demo/test',state:{name:'tom',age:18}}}>详情</Link>
 							注册路由(无需声明，正常注册即可)：<Route path="/demo/test" component={Test}/>
 							接收参数：this.props.location.state
-							备注：刷新也可以保留住参数			
+							备注：刷新也可以保留住参数	
+
+## 		90 push与repalce模式
+				路由跳转的两种模式：
+				路由默认开启的是push模式，可以回退
+				开启replace模式可使用Link的replace属性，则每次跳转都是替换，不留痕迹
