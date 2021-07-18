@@ -10,6 +10,11 @@ export default class index extends Component {
             {id:'03',title:'消息3'},
         ]
     }
+
+    replaceShow=(id,title)=>{
+        this.props.history.replace(`/home/message/detail/${id}/${title}`)
+    }
+
     render() {
         const {messageArr}=this.state
         return (
@@ -20,6 +25,8 @@ export default class index extends Component {
                         return(
                             <li key={msgObj.id}>
                                 <Link to={`/home/message/detail/${msgObj.id}/${msgObj.title}`}>{msgObj.title}</Link>
+                                &nbsp;<button>push查看</button>
+                                &nbsp;<button onClick={()=>this.replaceShow(msgObj.id,msgObj.title)}>replace查看</button>
                                 {/* <Link to={`/home/message/detail/?id=${msgObj.id}&title=${msgObj.title}`}>{msgObj.title}</Link> */}
                                 {/* <Link to={{pathname:'/home/message/detail',state:{id:msgObj.id,title:msgObj.title}}}>{msgObj.title}</Link> */}
                             </li> 
