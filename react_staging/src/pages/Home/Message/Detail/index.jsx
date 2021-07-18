@@ -9,12 +9,12 @@ const DetaiData= [
 
 export default class index extends Component {
     render() {
-        // const {id,title}=this.props.match.params
+        const {id,title}=this.props.match.params
 
         // const {search}=this.props.location
         // const {id,title}=qs.parse(search.slice(1))
 
-        const {id,title}=this.props.location.state || {}
+        // const {id,title}=this.props.location.state || {}
 
         const findResult = DetaiData.find((detailObj)=>{
             return detailObj.id===id
