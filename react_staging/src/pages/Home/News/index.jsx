@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 
 export default class index extends Component {
+    componentDidMount(){
+        setTimeout(()=>{
+            this.props.history.push('/home/message')
+        },2000)
+    }
     render() {
         return (
             <ul>
