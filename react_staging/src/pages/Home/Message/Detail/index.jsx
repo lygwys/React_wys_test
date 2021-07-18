@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import qs from 'querystring'
+// import qs from 'querystring'
 
 const DetaiData= [
     {id:'01',content:'你好，中国'},
@@ -11,10 +11,10 @@ export default class index extends Component {
     render() {
         // const {id,title}=this.props.match.params
 
-        const {search}=this.props.location
-        const {id,title}=qs.parse(search.slice(1))
+        // const {search}=this.props.location
+        // const {id,title}=qs.parse(search.slice(1))
 
-        // const {id,title}=this.props.location.state || {}
+        const {id,title}=this.props.location.state || {}
 
         const findResult = DetaiData.find((detailObj)=>{
             return detailObj.id===id
