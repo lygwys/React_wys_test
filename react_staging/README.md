@@ -114,3 +114,11 @@
 				路由跳转的两种模式：
 				路由默认开启的是push模式，可以回退
 				开启replace模式可使用Link的replace属性，则每次跳转都是替换，不留痕迹
+
+## 十二、编程式路由导航
+					借助this.prosp.history对象上的API对操作路由跳转、前进、后退
+							-this.prosp.history.push()
+							-this.prosp.history.replace()
+							-this.prosp.history.goBack()
+							-this.prosp.history.goForward()
+							-this.prosp.history.go()
