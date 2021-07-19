@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Button, DatePicker} from 'antd';
-import 'antd/dist/antd.css'
 import {WechatOutlined,DownOutlined,WarningTwoTone,SearchOutlined} from '@ant-design/icons'
 
 export default class App extends Component {
