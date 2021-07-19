@@ -163,3 +163,12 @@
 						}),
 					);
 				4.备注：不用在组件里亲自引入样式了，即：import 'antd/dist/antd.css'应该删掉
+
+！！！如果报错：this.getOptions is not a function
+原因： less-loader安装的版本过高当前是10.0.1（视频教程中是7.1.0）
+解决方案： 
+1.npm uninstall less-loader
+2.npm install less-loader@7.1.0
+！！！可能还会报错：Cannot find module 'less-loader'
+重新安装 react-app-rewired:
+npm install react-app-rewired       ( 默认会安装@2.1.8)
