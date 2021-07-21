@@ -3,11 +3,7 @@ import store from '../../redux/store'
 
 export default class index extends Component {
     state={carName:'奔驰c63'}
-    componentDidMount(){
-        store.subscribe(()=>{
-            this.setState({})
-        })
-    }
+
     increment=()=>{
         const {value}=this.selectNumber
         store.dispatch({type:'increment',data:value*1})
