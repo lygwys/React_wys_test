@@ -14,21 +14,20 @@ export default class index extends Component {
     }
     decrement=()=>{
         const {value}=this.selectNumber
-        const {count}=this.state
-        this.setState({count:count-value*1})
+        store.dispatch({type:'decrement',data:value*1})
     }
     incrementIfOdd=()=>{
         const {value}=this.selectNumber
-        const {count}=this.state
+        const count=store.getState()
         if (count % 2 !== 0) {
-            this.setState({count:count+value*1})
+            store.dispatch({type:'increment',data:value*1})
         }
     }
     incrementAsync=()=>{
         const {value}=this.selectNumber
-        const {count}=this.state
+        const count=store.getState()
         setTimeout(() => {
-            this.setState({count:count+value*1})
+            store.dispatch({type:'increment',data:value*1})
         }, 500);
     }
     render() {
