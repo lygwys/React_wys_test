@@ -9,12 +9,17 @@ export default class index extends Component {
     }
     decrement=()=>{
         const {value}=this.selectNumber
+        this.props.jian(value*1)
     }
     incrementIfOdd=()=>{
         const {value}=this.selectNumber
+        if (this.props.count % 2 !== 0) {
+            this.props.jia(value*1)
+        }
     }
     incrementAsync=()=>{
         const {value}=this.selectNumber
+        this.props.jiaAsync(value*1,500)
     }
     render() {
          return (            
