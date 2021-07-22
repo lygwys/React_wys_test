@@ -5,6 +5,7 @@ export default class index extends Component {
 
     increment=()=>{
         const {value}=this.selectNumber
+        this.props.jia(value*1)
     }
     decrement=()=>{
         const {value}=this.selectNumber
@@ -16,9 +17,9 @@ export default class index extends Component {
         const {value}=this.selectNumber
     }
     render() {
-        return (
-            <div>
-                <h1>当前求和为：???</h1>
+         return (            
+            <div>                
+                <h1>当前求和为：{this.props.count}</h1>
                 <select ref={c=>this.selectNumber=c}>
                     <option value="1">1</option>
                     <option value="2">2</option>
