@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import store from '../../redux/store'
-import {createDecrementAction,createIncrementAction} from '../../redux/count_action'
+import {createDecrementAction,
+    createIncrementAction,
+    createIncrementAsyncAction
+} from '../../redux/count_action'
+
 
 export default class index extends Component {
     state={carName:'奔驰c63'}
@@ -23,9 +27,7 @@ export default class index extends Component {
     incrementAsync=()=>{
         const {value}=this.selectNumber
         const count=store.getState()
-        setTimeout(() => {
-            store.dispatch(createIncrementAction(value*1))
-        }, 500);
+        store.dispatch(createIncrementAsyncAction(value*1,500))
     }
     render() {
         return (
