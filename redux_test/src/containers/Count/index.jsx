@@ -9,11 +9,9 @@ const mapStateToProps = state => ({count:state})
 
 export default connect(
     state => ({count:state}),
-    dispatch =>(
-        {
-            jia:number=>dispatch(createIncrementAction(number)),
-            jian:number=>dispatch(createDecrementAction(number)),
-            jiaAsync:(number,time)=>dispatch(createIncrementAsyncAction(number,time)),
-        }
-    )
+    {
+        jia:createIncrementAction,
+        jian:createDecrementAction,
+        jiaAsync:createIncrementAsyncAction,
+    }
 )(CountUI)
