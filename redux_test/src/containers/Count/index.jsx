@@ -45,10 +45,8 @@ class Count extends Component {
     }
 }
 
-const mapStateToProps = state => ({count:state})
-
 export default connect(
-    state => ({count:state}),
+    state => ({count:state.he}),
     {
         jia:createIncrementAction,
         jian:createDecrementAction,
