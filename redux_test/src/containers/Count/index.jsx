@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {createIncrementAction,
     createDecrementAction,
     createIncrementAsyncAction
-} from '../../redux/count_action'
+} from '../../redux/actions/count'
 
 class Count extends Component {
     state={carName:'奔驰c63'}
