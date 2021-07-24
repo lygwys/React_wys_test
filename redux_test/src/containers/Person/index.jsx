@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import {nanoid} from 'nanoid'
 
 export default class index extends Component {
     addPerson=()=>{
         const name = this.nameNode.value
         const age = this.ageNode.value
-        console.log(name,age)
+        const personObj = {id:nanoid(),name,age}
+        console.log(personObj)
     }
     render() {
         return (
