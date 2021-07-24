@@ -28,8 +28,9 @@ class Count extends Component {
     }
     render() {
          return (            
-            <div>                
-                <h1>当前求和为：{this.props.count}</h1>
+            <div> 
+                <h1>我是Count组件</h1>               
+                <h4>当前求和为：{this.props.count}</h4>
                 <select ref={c=>this.selectNumber=c}>
                     <option value="1">1</option>
                     <option value="2">2</option>
