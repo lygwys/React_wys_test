@@ -10,6 +10,8 @@ import {createAddPersonAction} from '../../redux/actions/person'
         const personObj = {id:nanoid(),name,age}
         console.log(personObj)
         this.props.jiaYiRen(personObj)
+        this.nameNode.value = ''
+        this.ageNode.value = ''
     }
     
     render() {
