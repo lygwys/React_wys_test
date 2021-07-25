@@ -77,3 +77,13 @@
 			(1).所有变量名字要规范，尽量触发对象的简写形式。
 			(2).reducers文件夹中，编写index.js专门用于汇总并暴露所有的reducer
 
+## 115 项目打包运行
+	1.npm run build
+	生成build/
+	2.全局安装serve
+	npm i serve -g
+	3.以build/为根目录运行
+	redux_test> serve build
+	4.浏览
+	http://localhost:5000/
+
