@@ -30,7 +30,7 @@ class Count extends Component {
          return (            
             <div> 
                 <h1>我是Count组件</h1>               
-                <h4>当前求和为：{this.props.count}，总人数为：{this.props.renshu}</h4>
+                <h4>当前求和为：{this.props.count}，总人数为：{this.props.personCount}</h4>
                 <select ref={c=>this.selectNumber=c}>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -46,7 +46,10 @@ class Count extends Component {
 }
 
 export default connect(
-    state => ({count:state.he,renshu:state.rens.length}),
+    state => ({
+        count:state.count,
+        personCount:state.persons.length
+    }),
     {
         jia:createIncrementAction,
         jian:createDecrementAction,

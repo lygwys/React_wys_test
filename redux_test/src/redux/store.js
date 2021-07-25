@@ -5,8 +5,8 @@ import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 
 const allReducer = combineReducers({
-    he:countReducer,
-    rens:personReducer
+    count:countReducer,
+    persons:personReducer
 })
 
 export default createStore(allReducer,composeWithDevTools(applyMiddleware(thunk)))
