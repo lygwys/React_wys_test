@@ -5,7 +5,7 @@ export default function personReducer(preState=initState,action){
     // console.log('personReducer@@@@@@')
     const {type,data} = action
     switch (type){
-        case ADD_PERSON:
+        case ADD_PERSON:            
             return [data,...preState]
         default:
             return preState
