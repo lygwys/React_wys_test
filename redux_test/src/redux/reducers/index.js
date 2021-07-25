@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux'
 import count from './count'
-import person from './person'
+import persons from './person'
 
 export default combineReducers({
     count,
-    person
+    persons
 })
