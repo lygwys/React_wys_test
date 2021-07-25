@@ -11,21 +11,21 @@ class Count extends Component {
 
     increment=()=>{
         const {value}=this.selectNumber
-        this.props.jia(value*1)
+        this.props.increment(value*1)
     }
     decrement=()=>{
         const {value}=this.selectNumber
-        this.props.jian(value*1)
+        this.props.decrement(value*1)
     }
     incrementIfOdd=()=>{
         const {value}=this.selectNumber
         if (this.props.count % 2 !== 0) {
-            this.props.jia(value*1)
+            this.props.increment(value*1)
         }
     }
     incrementAsync=()=>{
         const {value}=this.selectNumber
-        this.props.jiaAsync(value*1,500)
+        this.props.incrementAsync(value*1,500)
     }
     render() {
          return (            
@@ -52,8 +52,8 @@ export default connect(
         personCount:state.persons.length
     }),
     {
-        jia:increment,
-        jian:decrement,
-        jiaAsync:incrementAsync,
+        increment,
+        decrement,
+        incrementAsync,
     }
 )(Count)
