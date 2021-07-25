@@ -18,7 +18,7 @@ import {createAddPersonAction} from '../../redux/actions/person'
         console.log(this)
         return (
             <div>
-                <h1>我是Person组件</h1>
+                <h1>我是Person组件,当前求和为：{this.props.he}</h1>
                 <input ref={c=>this.nameNode=c} type="text" placeholder="请输入名字" />
                 <input ref={c=>this.ageNode=c} type="text" placeholder="请输入年龄" />
                 <button onClick={this.addPerson}>添加</button>
@@ -35,6 +35,6 @@ import {createAddPersonAction} from '../../redux/actions/person'
 }
 
 export default connect(
-    state => ({yiduiren:state.rens}),
+    state => ({yiduiren:state.rens,he:state.he}),
     {jiaYiRen:createAddPersonAction}
 )(Person)
