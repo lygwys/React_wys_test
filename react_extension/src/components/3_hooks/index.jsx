@@ -19,7 +19,8 @@ import React, { Component } from 'react'
 function Demo(){
     const [count,setCount] = React.useState(0)
     function add(){
-        setCount(count+1)
+        //setCount(count+1)//setCount第一种写法
+        setCount(count => count+1)//setCount第二种写法，函数形式，传入先前状态，返回新的状态
     }
     return (
         <div>
