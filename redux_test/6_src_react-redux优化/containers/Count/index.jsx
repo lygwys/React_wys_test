@@ -44,7 +44,7 @@ class Count extends Component {
     }
 }
 
-const mapStateToProps = state => ({count:state})
+//const mapStateToProps = state => ({count:state})
 
 export default connect(
     state => ({count:state}),

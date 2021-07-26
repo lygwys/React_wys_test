@@ -8,14 +8,14 @@ import {createAddPersonAction} from '../../redux/actions/person'
         const name = this.nameNode.value
         const age = this.ageNode.value
         const personObj = {id:nanoid(),name,age}
-        console.log(personObj)
+        //console.log(personObj)
         this.props.jiaYiRen(personObj)
         this.nameNode.value = ''
         this.ageNode.value = ''
     }
     
     render() {
-        console.log(this)
+        //console.log(this)
         return (
             <div>
                 <h1>我是Person组件,当前求和为：{this.props.he}</h1>
