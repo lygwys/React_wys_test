@@ -1,5 +1,6 @@
 import React, { Component,lazy,Suspense } from 'react'
 import {NavLink,Route} from 'react-router-dom'
+import Loding from './Loding'
 // import About from './About'
 // import Home from './Home'
 const Home = lazy(() => import('./Home'))
@@ -26,7 +27,7 @@ export default class Demo extends Component {
                 <div className="col-xs-6">
                     <div className="panel">
                     <div className="panel-body">
-                        <Suspense fallback={<h1>Loading...</h1>}>
+                        <Suspense fallback={<Loding/>}>
                             <Route path="/about" component={About}/>
                             <Route path="/home" component={Home}/>  
                         </Suspense>                                             
