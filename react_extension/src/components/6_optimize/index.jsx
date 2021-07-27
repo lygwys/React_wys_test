@@ -1,16 +1,12 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import './index.css'
 
-export default class Parent extends Component {
+export default class Parent extends PureComponent {
     state={carName:'奔驰c63'}
     changeCar=() => {
         this.setState({carName:'迈巴赫'})
     }
-    shouldComponentUpdate(nextProps,nextState){
-        // console.log(this.props,this.state);
-        // console.log(nextProps,nextState);        
-        return !(this.state.carName===nextState.carName)
-    }
+
     render() {
         console.log('Parent---render');
         const {carName}=this.state
@@ -25,12 +21,7 @@ export default class Parent extends Component {
     }
 }
 
-class Child extends Component { 
-    shouldComponentUpdate(nextProps,nextState){
-        // console.log(this.props,this.state);
-        // console.log(nextProps,nextState);        
-        return !(this.props.carName===nextProps.carName)
-    }   
+class Child extends PureComponent {  
     render() {
         console.log('Child---render');
         return (
