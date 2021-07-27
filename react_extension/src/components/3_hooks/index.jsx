@@ -4,12 +4,18 @@ import ReactDOM from 'react-dom'
 export default class Demo extends Component {
     state = {count:0}
 
+    myRef = React.createRef()
+
     add = () => {
         this.setState(state=>({count:state.count+1}))
     }
 
     unmount = () => {
         ReactDOM.unmountComponentAtNode(document.getElementById('root'))
+    }
+
+    show = () => {
+        alert(this.myRef.current.value)
     }
 
     componentDidMount(){
@@ -25,9 +31,11 @@ export default class Demo extends Component {
     render() {
         return (
             <div>
+                <input type="text" ref={this.myRef} />
                 <h2>当前求和为{this.state.count}</h2>
                 <button onClick={this.add}>点我+1</button>
                 <button onClick={this.unmount}>卸载组件</button>
+                <button onClick={this.show}>点击提示数据</button>
             </div>
         )
     }
