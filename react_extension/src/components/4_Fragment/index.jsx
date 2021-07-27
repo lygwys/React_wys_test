@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component,Fragment } from 'react'
 
 export default class Demo extends Component {
     render() {
         return (
-            <div name='2'>
+            <Fragment>
                 <h2>Fragment</h2>
-            </div>
+            </Fragment>
         )
     }
 }
