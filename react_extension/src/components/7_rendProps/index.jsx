@@ -6,7 +6,9 @@ export default class Parent extends Component {
         return (
             <div className="parent">
                 <h3>我是Parent组件</h3>
-                <A>hello!</A>
+                <A>
+                    <B/>
+                </A>
             </div>
         )
     }
@@ -17,8 +19,7 @@ class A extends Component {
         return (
             <div className="a">
                 <h3>我是A组件</h3>
-                <h4>{this.props.children}</h4>
-                <B/>
+                {this.props.children}
             </div>
         )
     }
@@ -26,6 +27,7 @@ class A extends Component {
 
 class B extends Component {
     render() {
+        console.log('B---render');
         return (
             <div className="b ">
                 <h3>我是B组件</h3>
