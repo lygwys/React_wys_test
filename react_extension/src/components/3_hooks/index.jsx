@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom'
 
 // export default class Demo extends Component {
 //     state = {count:0}
@@ -45,9 +45,12 @@ function Demo(){
     // },[count])
 
     React.useEffect(() => {
-        setInterval(() => {
+        let timer = setInterval(() => {
             setCount(count => count+1)
-        }, 1000);
+        }, 1000)
+        return () => {
+            clearInterval(timer)
+        }
     },[])
 
     function add(){
@@ -58,12 +61,17 @@ function Demo(){
         setName('jack')
     }
 
+    function unmount(){
+        ReactDOM.unmountComponentAtNode(document.getElementById('root'))
+    }
+
     return (
         <div>
             <h2>当前求和为{count}</h2>
             <h2>当前名字为{name}</h2>
             <button onClick={add}>点我+1</button>
             <button onClick={change}>改名</button>
+            <button onClick={unmount}>卸载组件</button>
         </div>
     )
 }
