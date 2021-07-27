@@ -35,11 +35,11 @@ export default class A extends Component {
 class C extends Component {
     static contextType = MyContext
     render() {
-        console.log(this);
+        const {userName,age} = this.context
         return (
             <div className="grand">
                 <h3>我是C组件</h3>
-                <h4>我从A组件接收到的用户名是{this.context.userName},年龄是{this.context.age}</h4>
+                <h4>我从A组件接收到的用户名是{userName},年龄是{age}</h4>
             </div>
         )
     }
