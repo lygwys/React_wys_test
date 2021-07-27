@@ -5,14 +5,14 @@ const MyContext = React.createContext()
 const {Provider} = MyContext
 
 export default class A extends Component {
-    state = {userName:'tom'}
+    state = {userName:'tom',age:18}
     render() {
-        const {userName} = this.state
+        const {userName,age} = this.state
         return (
             <div className="parent">
                 <h3>我A组件</h3>
                 <h4>我的用户名是{this.state.userName}</h4>
-                <Provider value={userName}>
+                <Provider value={{userName,age}}>
                     <B/>
                 </Provider>
             </div>
@@ -39,7 +39,7 @@ class C extends Component {
         return (
             <div className="grand">
                 <h3>我是C组件</h3>
-                <h4>我从A组件接收到的用户名是{this.context}</h4>
+                <h4>我从A组件接收到的用户名是{this.context.userName},年龄是{this.context.age}</h4>
             </div>
         )
     }
