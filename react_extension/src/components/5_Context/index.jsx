@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './index.css'
 
 const MyContext = React.createContext()
-const {Provider} = MyContext
+const {Provider,Consumer} = MyContext
 
 export default class A extends Component {
     state = {userName:'tom',age:18}
@@ -32,15 +32,28 @@ export default class A extends Component {
     }
 }
 
-class C extends Component {
-    static contextType = MyContext
-    render() {
-        const {userName,age} = this.context
-        return (
-            <div className="grand">
-                <h3>我是C组件</h3>
-                <h4>我从A组件接收到的用户名是{userName},年龄是{age}</h4>
-            </div>
-        )
-    }
+// class C extends Component {
+//     static contextType = MyContext
+//     render() {
+//         const {userName,age} = this.context
+//         return (
+//             <div className="grand">
+//                 <h3>我是C组件</h3>
+//                 <h4>我从A组件接收到的用户名是{userName},年龄是{age}</h4>
+//             </div>
+//         )
+//     }
+// }
+
+function C(){
+    return (
+        <div className="grand">
+            <h3>我是C组件</h3>
+            <h4>我从A组件接收到的用户名是
+                <Consumer>
+                    {value => `${value.userName}年龄是${value.age}`}      
+                </Consumer>               
+            </h4>
+        </div>
+    )
 }
