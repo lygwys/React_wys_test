@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
 import './index.css'
 
+const MyContext = React.createContext()
+const {Provider} = MyContext
+
 export default class A extends Component {
     state = {userName:'tom'}
     render() {
+        const {userName} = this.state
         return (
-            <div class="parent">
+            <div className="parent">
                 <h3>我A组件</h3>
                 <h4>我的用户名是{this.state.userName}</h4>
-                <B userName={this.state.userName}/>
+                <Provider value={userName}>
+                    <B/>
+                </Provider>
             </div>
         )
     }
@@ -18,21 +24,22 @@ export default class A extends Component {
  class B extends Component {
     render() {
         return (
-            <div class="child">
-                <h3>我是B组件</h3>
-                <h4>我从A组件接收到的用户名是{this.props.userName}</h4>
-                <C userName={this.props.userName}/>
+            <div className="child">
+                <h3>我是B组件</h3>                
+                <C/>
             </div>
         )
     }
 }
 
 class C extends Component {
+    static contextType = MyContext
     render() {
+        console.log(this);
         return (
-            <div class="grand">
+            <div className="grand">
                 <h3>我是C组件</h3>
-                <h4>我从A组件接收到的用户名是{this.props.userName}</h4>
+                <h4>我从A组件接收到的用户名是{this.context}</h4>
             </div>
         )
     }
