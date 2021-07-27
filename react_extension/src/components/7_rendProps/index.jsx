@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './index.css'
+import C from '../1_setState'
 
 export default class Parent extends Component {
     render() {
@@ -7,6 +8,7 @@ export default class Parent extends Component {
             <div className="parent">
                 <h3>我是Parent组件</h3>
                 <A render={(name)=><B name={name}/>}/>
+                <A render={(name)=><C name={name}/>}/>
             </div>
         )
     }
