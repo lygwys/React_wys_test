@@ -8,7 +8,7 @@ export default class A extends Component {
             <div class="parent">
                 <h3>我A组件</h3>
                 <h4>我的用户名是{this.state.userName}</h4>
-                <B/>
+                <B userName={this.state.userName}/>
             </div>
         )
     }
@@ -20,8 +20,8 @@ export default class A extends Component {
         return (
             <div class="child">
                 <h3>我是B组件</h3>
-                <h4>我从A组件接收到的用户名是？？？</h4>
-                <C/>
+                <h4>我从A组件接收到的用户名是{this.props.userName}</h4>
+                <C userName={this.props.userName}/>
             </div>
         )
     }
@@ -32,7 +32,7 @@ class C extends Component {
         return (
             <div class="grand">
                 <h3>我是C组件</h3>
-                <h4>我从A组件接收到的用户名是？？？</h4>
+                <h4>我从A组件接收到的用户名是{this.props.userName}</h4>
             </div>
         )
     }
