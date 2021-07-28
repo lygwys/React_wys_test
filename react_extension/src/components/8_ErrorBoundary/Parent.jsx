@@ -9,6 +9,9 @@ export default class Parent extends Component {
         console.log('@@@',error);
         return {hasError:error}
     }
+    componentDidCatch(){// 
+        console.log('渲染组件时出错，此处多用于统计错误，反馈给服务器，用于通知编码人员解决bug');
+    }
     render() {
         console.log('###');
         return (
